@@ -64,4 +64,68 @@
 #include <iomanip>
 #include <string>
 using namespace std;
+const int MAX = 10;
 
+// Function to read a matrix
+void readMatrix(int matrix[MAX][MAX], int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cout << "Enter element [" << i << "][" << j << "]: ";
+            cin >> matrix[i][j];
+        }
+    }
+}
+
+// Function to display a matrix
+void displayMatrix(int matrix[MAX][MAX], int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cout << setw(5) << matrix[i][j];
+        }
+        cout << endl;
+    }
+}
+
+// Part A: Transpose of a matrix
+void transposeMatrix(int matrix[MAX][MAX], int transpose[MAX][MAX], int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            transpose[j][i] = matrix[i][j];
+        }
+    }
+}
+
+// Part B: Add two matrices
+void addMatrices(int A[MAX][MAX], int B[MAX][MAX], int sum[MAX][MAX], int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            sum[i][j] = A[i][j] + B[i][j];
+        }
+    }
+}
+
+// Part C: Multiply two matrices
+void multiplyMatrices(int A[MAX][MAX], int B[MAX][MAX], int product[MAX][MAX],
+                      int rowsA, int colsA, int colsB) {
+    for (int i = 0; i < rowsA; i++) {
+        for (int j = 0; j < colsB; j++) {
+            product[i][j] = 0;
+            for (int k = 0; k < colsA; k++) {
+                product[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}
+
+int main() {
+    int A[MAX][MAX], B[MAX][MAX], C[MAX][MAX], T[MAX][MAX];
+    int rows, cols;
+    int rowsA, colsA, rowsB, colsB;
+
+    // ===========================
+    // PART A - Transpose
+    // ===========================
+    cout << "===== PART A: Transpose Matrix =====" << endl;
+    cout << "Enter number of rows: ";
+    cin >> rows;
+    cout << "Enter number of

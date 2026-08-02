@@ -157,7 +157,7 @@ int main() {
         } else if (choice == 7) {
             cout << "Goodbye!" << endl;
         } else {
-            cout << "Invalid choice. Please select a number between 1 and 7." << endl;
+            cout << "Invalid choice. 6." << endl;
         }
 
     } while (choice != 7);

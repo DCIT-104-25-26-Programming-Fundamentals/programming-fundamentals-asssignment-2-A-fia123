@@ -56,4 +56,64 @@
 
 #include <iostream>
 using namespace std;
+// -----------------------------------------------------------------------------
+// PART A — Single Table
+// -----------------------------------------------------------------------------
+void printSingleTable(int number) {
+    cout << "Multiplication Table for " << number << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << number << " x " << i << " = " << number * i << endl;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// PART B — Bonus: Tables from 1 to N
+// -----------------------------------------------------------------------------
+void printTablesUpToN(int N) {
+    for (int num = 1; num <= N; num++) {
+        cout << "Multiplication Table for " << num << ":" << endl;
+        for (int i = 1; i <= 12; i++) {
+            cout << num << " x " << i << " = " << num * i << endl;
+        }
+        cout << "---------------------------" << endl;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MAIN PROGRAM
+// -----------------------------------------------------------------------------
+int main() {
+    int choice;
+    cout << "Choose an option:\n";
+    cout << "1. Print a single multiplication table\n";
+    cout << "2. Print tables from 1 to N\n";
+    cout << "Enter choice (1 or 2): ";
+    cin >> choice;
+
+    if (choice == 1) {
+        int number;
+        cout << "Enter a positive integer: ";
+        cin >> number;
+        if (number <= 0) {
+            cout << "Error: Please enter a positive integer." << endl;
+            return 1;
+        }
+        printSingleTable(number);
+    }
+    else if (choice == 2) {
+        int N;
+        cout << "Enter a positive integer N: ";
+        cin >> N;
+        if (N <= 0) {
+            cout << "Error: Please enter a positive integer." << endl;
+            return 1;
+        }
+        printTablesUpToN(N);
+    }
+    else {
+        cout << "Invalid choice. Program will exit." << endl;
+    }
+
+    return 0;
+}
 
